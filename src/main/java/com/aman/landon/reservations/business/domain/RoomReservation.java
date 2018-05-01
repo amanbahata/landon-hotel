@@ -1,4 +1,4 @@
-package com.aman.reservations.business.domain;
+package com.aman.landon.reservations.business.domain;
 
 
 import java.util.Date;

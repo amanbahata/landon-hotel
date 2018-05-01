@@ -1,4 +1,4 @@
-package com.aman.reservations;
+package com.aman.landon.reservations;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.aman.reservations.data.entity;
+package com.aman.landon.reservations.data.entity;
 
 import javax.persistence.*;
 

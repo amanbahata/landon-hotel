@@ -1,4 +1,4 @@
-package com.aman.reservations.web.application;
+package com.aman.landon.reservations.web.application;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

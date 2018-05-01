@@ -1,13 +1,13 @@
-package com.aman.reservations.business.service;
+package com.aman.landon.reservations.business.service;
 
 
-import com.aman.reservations.business.domain.RoomReservation;
-import com.aman.reservations.data.entity.Guest;
-import com.aman.reservations.data.entity.Reservation;
-import com.aman.reservations.data.entity.Room;
-import com.aman.reservations.data.repository.GuestRepository;
-import com.aman.reservations.data.repository.ReservationRepository;
-import com.aman.reservations.data.repository.RoomRepository;
+import com.aman.landon.reservations.business.domain.RoomReservation;
+import com.aman.landon.reservations.data.entity.Room;
+import com.aman.landon.reservations.data.repository.ReservationRepository;
+import com.aman.landon.reservations.data.entity.Guest;
+import com.aman.landon.reservations.data.entity.Reservation;
+import com.aman.landon.reservations.data.repository.GuestRepository;
+import com.aman.landon.reservations.data.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

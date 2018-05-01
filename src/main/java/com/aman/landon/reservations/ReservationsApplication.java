@@ -1,4 +1,4 @@
-package com.aman.reservations;
+package com.aman.landon.reservations;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,6 +1,6 @@
-package com.aman.reservations.data.repository;
+package com.aman.landon.reservations.data.repository;
 
-import com.aman.reservations.data.entity.Reservation;
+import com.aman.landon.reservations.data.entity.Reservation;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
