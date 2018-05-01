@@ -11,6 +11,9 @@ import com.aman.landon.reservations.data.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service
@@ -18,6 +21,9 @@ public class ReservationService {
     private RoomRepository roomRepository;
     private GuestRepository guestRepository;
     private ReservationRepository reservationRepository;
+
+    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+
 
     @Autowired
     public ReservationService(RoomRepository roomRepository,
@@ -29,10 +35,11 @@ public class ReservationService {
     }
 
 
-    public List<RoomReservation> getRoomReservationsByDate(Date date){
+    public List<RoomReservation> getRoomReservationsByDate(String dateString){
 
         Iterable<Room> rooms = this.roomRepository.findAll();
         Map<Long, RoomReservation> roomReservationMap = new HashMap<>();
+        Date date = createDateFromDataString(dateString);
 
         rooms.forEach(room -> {
             RoomReservation roomReservation = new RoomReservation();
@@ -63,8 +70,24 @@ public class ReservationService {
         for (Long roomId: roomReservationMap.keySet()){
             roomReservations.add(roomReservationMap.get(roomId));
         }
-//        roomReservations.sort((o1, o2) -> o1.getRoomId() < o2.getRoomId()? -1 : 1);
+        roomReservations.sort((o1, o2) -> o1.getRoomId() < o2.getRoomId()? -1 : 1);
 
         return roomReservations;
+    }
+
+
+    private Date createDateFromDataString(String dateString){
+        Date date = null;
+        if (dateString != null){
+            try {
+                date = DATE_FORMAT.parse(dateString);
+            }catch (ParseException e){
+                date = new Date();
+            }
+        }else {
+            date = new Date();
+        }
+
+        return date;
     }
 }
