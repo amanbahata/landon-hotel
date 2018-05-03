@@ -15,7 +15,7 @@ function getRequestParam(p){
 
 function setInitialDate(){
     var requestDate = getRequestParam('date');
-    if(requestDate == null){
+    if(requestDate === null){
         requestDate = new Date();
     }else{
         requestDate = formatDate(requestDate);
