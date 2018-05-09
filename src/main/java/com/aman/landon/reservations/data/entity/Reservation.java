@@ -1,11 +1,10 @@
 package com.aman.landon.reservations.data.entity;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.sql.Date;

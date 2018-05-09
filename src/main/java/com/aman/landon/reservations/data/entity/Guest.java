@@ -1,9 +1,9 @@
 package com.aman.landon.reservations.data.entity;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Document(collection = "Guest")

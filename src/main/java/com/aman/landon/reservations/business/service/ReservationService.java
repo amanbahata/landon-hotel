@@ -52,7 +52,10 @@ public class ReservationService {
 
         if (reservations != null){
             reservations.forEach(reservation -> {
+//                Guest guest = this.guestRepository.findById(reservation.getGuestId()).orElse(null);
+
                 Guest guest = this.guestRepository.findById(reservation.getGuestId()).orElse(null);
+
 
                 if (guest != null) {
                     RoomReservation roomReservation = roomReservationMap.get(reservation.getId());
