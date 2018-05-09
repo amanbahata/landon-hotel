@@ -45,8 +45,8 @@ public class ReservationControllerTest {
         mockRoomReservation.setDate(date);
         mockRoomReservation.setLastName("Test");
         mockRoomReservation.setFirstName("Junit");
-        mockRoomReservation.setGuestId(1);
-        mockRoomReservation.setRoomId(100);
+        mockRoomReservation.setGuestId("1");
+        mockRoomReservation.setRoomId("100");
         mockRoomReservation.setRoomNumber("J1");
         mockRoomReservation.setRoomName("JUnit Room");
 

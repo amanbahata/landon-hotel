@@ -1,31 +1,24 @@
 package com.aman.landon.reservations.data.entity;
 
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import javax.persistence.*;
 
-@Entity
-@Table(name = "ROOM")
+@Document
 public class Room {
 
     @Id
-    @Column(name = "ROOM_ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
-    @Column(name = "NAME")
+    private String id;
     private String name;
-
-    @Column(name = "ROOM_NUMBER")
     private String number;
-
-    @Column(name = "BED_INFO")
     private String bedInfo;
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

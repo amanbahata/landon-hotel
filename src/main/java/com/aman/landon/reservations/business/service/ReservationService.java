@@ -1,12 +1,11 @@
 package com.aman.landon.reservations.business.service;
 
-
 import com.aman.landon.reservations.business.domain.RoomReservation;
-import com.aman.landon.reservations.data.entity.Room;
-import com.aman.landon.reservations.data.repository.ReservationRepository;
 import com.aman.landon.reservations.data.entity.Guest;
 import com.aman.landon.reservations.data.entity.Reservation;
+import com.aman.landon.reservations.data.entity.Room;
 import com.aman.landon.reservations.data.repository.GuestRepository;
+import com.aman.landon.reservations.data.repository.ReservationRepository;
 import com.aman.landon.reservations.data.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +23,6 @@ public class ReservationService {
 
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
-
     @Autowired
     public ReservationService(RoomRepository roomRepository,
                               GuestRepository guestRepository,
@@ -35,10 +33,10 @@ public class ReservationService {
     }
 
 
-    public List<RoomReservation> getRoomReservationsByDate(String dateString){
 
-        Iterable<Room> rooms = this.roomRepository.findAll();
-        Map<Long, RoomReservation> roomReservationMap = new HashMap<>();
+    public List<RoomReservation> getRoomReservationsByDate(String dateString){
+        Iterable<Room> rooms = roomRepository.findAll();
+        Map<String, RoomReservation> roomReservationMap = new HashMap<>();
         Date date = createDateFromDataString(dateString);
 
         rooms.forEach(room -> {
@@ -67,16 +65,15 @@ public class ReservationService {
         }
 
         List<RoomReservation> roomReservations = new ArrayList<>();
-        for (Long roomId: roomReservationMap.keySet()){
+        for (String roomId: roomReservationMap.keySet()){
             roomReservations.add(roomReservationMap.get(roomId));
         }
-        roomReservations.sort((o1, o2) -> o1.getRoomId() < o2.getRoomId()? -1 : 1);
+//        roomReservations.sort((o1, o2) -> o1.getRoomId() < o2.getRoomId()? -1 : 1);
 
         return roomReservations;
     }
 
-
-    private Date createDateFromDataString(String dateString){
+    private Date createDateFromDataString(String dateString) {
         Date date = null;
         if (dateString != null){
             try {
@@ -87,7 +84,6 @@ public class ReservationService {
         }else {
             date = new Date();
         }
-
         return date;
     }
 }
