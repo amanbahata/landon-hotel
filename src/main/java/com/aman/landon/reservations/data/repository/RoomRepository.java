@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RoomRepository extends MongoRepository<Room, Long> {
-    Room findByNumber(String number);
 }
