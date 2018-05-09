@@ -52,8 +52,6 @@ public class ReservationService {
 
         if (reservations != null){
             reservations.forEach(reservation -> {
-//                Guest guest = this.guestRepository.findById(reservation.getGuestId()).orElse(null);
-
                 Guest guest = this.guestRepository.findById(reservation.getGuestId()).orElse(null);
 
 
@@ -75,6 +73,7 @@ public class ReservationService {
 
         return roomReservations;
     }
+
 
     private Date createDateFromDataString(String dateString) {
         Date date = null;

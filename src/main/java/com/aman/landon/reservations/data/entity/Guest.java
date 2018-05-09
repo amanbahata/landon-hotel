@@ -1,6 +1,7 @@
 package com.aman.landon.reservations.data.entity;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -12,9 +13,11 @@ public class Guest {
     @Id
     private String id;
     @NotEmpty
+    @Indexed(unique = true)
     @Field("firstname")
     private String firstName;
     @NotEmpty
+    @Indexed(unique = true)
     @Field("lastname")
     private String lastName;
     @NotEmpty

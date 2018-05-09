@@ -1,13 +1,15 @@
 package com.aman.landon.reservations.web.service;
 
 import com.aman.landon.reservations.business.domain.RoomReservation;
+import com.aman.landon.reservations.business.service.AddRoomService;
 import com.aman.landon.reservations.business.service.ReservationService;
+import com.aman.landon.reservations.data.entity.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.mongodb.repository.Query;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,14 +18,24 @@ import java.util.List;
 public class ReservationServiceController {
 
     private final ReservationService reservationService;
-
+    private final AddRoomService addRoomService;
     @Autowired
-    public ReservationServiceController(ReservationService reservationService) {
+    public ReservationServiceController(ReservationService reservationService, AddRoomService addRoomService) {
         this.reservationService = reservationService;
+        this.addRoomService = addRoomService;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/reservations/{date}")
     public List<RoomReservation> getAllReservations(@PathVariable("date") String dateString){
         return this.reservationService.getRoomReservationsByDate(dateString);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/addroom")
+    public ResponseEntity<String> addRoom(@RequestBody Room room){
+        if (room != null) {
+            this.addRoomService.addRoom(room);
+            return ResponseEntity.status(HttpStatus.CREATED).build();
+        }
+        return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).build();
     }
 }
