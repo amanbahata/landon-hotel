@@ -14,15 +14,12 @@ public class Room{
     @Id
     private String id;
 
-    @NotEmpty
     @Field("name")
     private String name;
 
-    @NotEmpty
     @Field("number")
     private String number;
 
-    @NotEmpty
     @Field("bedinfo")
     private String bedInfo;
 
