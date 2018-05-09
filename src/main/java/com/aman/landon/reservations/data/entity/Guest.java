@@ -1,20 +1,36 @@
 package com.aman.landon.reservations.data.entity;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
-@Document
+@Document(collection = "Guest")
 public class Guest {
 
     @Id
     private String id;
+    @NotEmpty
+    @Field("firstname")
     private String firstName;
+    @NotEmpty
+    @Field("lastname")
     private String lastName;
+    @NotEmpty
+    @Field("email")
     private String email;
+    @NotEmpty
+    @Field("address")
     private String address;
+    @NotEmpty
+    @Field("country")
     private String country;
+    @NotEmpty
+    @Field("state")
     private String state;
+    @NotEmpty
+    @Field("phonenumber")
     private String phoneNumber;
 
     public String getId() {

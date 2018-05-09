@@ -1,18 +1,30 @@
 package com.aman.landon.reservations.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
 import java.sql.Date;
 
-@Document
-public class Reservation {
+@Document(collection = "Reservation")
+public class Reservation implements Serializable{
 
 
     @Id
     private String id;
-    private long roomId;
-    private long guestId;
+    @NotEmpty
+    @Field("roomId")
+    private String roomId;
+    @NotEmpty
+    @Field("guestId")
+    private String guestId;
+    @NotEmpty
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @Field("date")
     private Date date;
 
     public String getId() {
@@ -23,19 +35,19 @@ public class Reservation {
         this.id = id;
     }
 
-    public long getRoomId() {
+    public String getRoomId() {
         return roomId;
     }
 
-    public void setRoomId(long roomId) {
+    public void setRoomId(String roomId) {
         this.roomId = roomId;
     }
 
-    public long getGuestId() {
+    public String getGuestId() {
         return guestId;
     }
 
-    public void setGuestId(long guestId) {
+    public void setGuestId(String guestId) {
         this.guestId = guestId;
     }
 

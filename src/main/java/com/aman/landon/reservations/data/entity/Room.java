@@ -2,16 +2,24 @@ package com.aman.landon.reservations.data.entity;
 
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
-@Document
+@Document(collection = "Room")
 public class Room {
 
     @Id
     private String id;
+    @NotEmpty
+    @Field("name")
     private String name;
+    @NotEmpty
+    @Field("number")
     private String number;
+    @NotEmpty
+    @Field("bedinfo")
     private String bedInfo;
 
     public String getId() {
