@@ -9,7 +9,7 @@ import javax.validation.constraints.NotEmpty;
 
 
 @Document(collection = "Room")
-public class Room {
+public class Room{
 
     @Id
     private String id;
